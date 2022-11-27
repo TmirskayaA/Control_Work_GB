@@ -18,14 +18,28 @@ for (int i = 0; i < arrayString.Length; i++)
     }
 }
 
-string[] ChangeArrayString(string[] listOfWords)
+void PrintArray(string[] listOfString)
 {
-    string[] newArray = new string[listOfWords.Length];
-
-    for (int i = 0; i < listOfWords.Length ; i++)
+    int count = 0;
+    while (count != listOfString.Length)
     {
-        if (listOfWords[i].Length <= 3) newArray[i] = listOfWords[i];
+        if (count == 0)  Console.Write($"[\"{listOfString[count]}\"; ");
+        else if (count + 1 == listOfString.Length) Console.WriteLine($"\"{listOfString[count]}\"]");
+        else Console.Write($"\"{listOfString[count]}\"; ");
+        count++;
+    }
+}
+
+string[] ChangeArrayString(string[] listOfString)
+{
+    string[] newArray = new string[listOfString.Length];
+
+    for (int i = 0; i < listOfString.Length ; i++)
+    {
+        if (listOfString[i].Length <= 3) newArray[i] = listOfString[i];
     }
     return newArray;
 }
+
+int newArrayString = ChangeArrayString(arrayString);
 
