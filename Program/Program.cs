@@ -30,6 +30,10 @@ void PrintArray(string[] listOfString)
     }
 }
 
+Console.WriteLine();
+Console.WriteLine("Вот ваш массив строк:");
+PrintArray(arrayString);
+
 string[] ChangeArrayString(string[] listOfString)
 {
     string[] newArray = new string[listOfString.Length];
@@ -41,5 +45,8 @@ string[] ChangeArrayString(string[] listOfString)
     return newArray;
 }
 
-int newArrayString = ChangeArrayString(arrayString);
+string[] newArrayString = ChangeArrayString(arrayString);
 
+Console.WriteLine();
+Console.WriteLine("Теперь я оставил только те строки, в которых есть максимум 3 символа. Вот что получилось:");
+PrintArray(newArrayString);
