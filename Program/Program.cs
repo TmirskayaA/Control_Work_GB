@@ -36,7 +36,13 @@ PrintArray(arrayString);
 
 string[] ChangeArrayString(string[] listOfString)
 {
-    string[] newArray = new string[listOfString.Length];
+    int count = 0;
+    for (int i = 0; i < listOfString.Length; i++)
+    {
+        if (listOfString[i].Length <= 3) count++;
+    }
+
+    string[] newArray = new string[count];
 
     for (int i = 0; i < listOfString.Length ; i++)
     {
@@ -45,16 +51,7 @@ string[] ChangeArrayString(string[] listOfString)
     return newArray;
 }
 
-string[] CleanNullArray(string[] listOfString)
-{
-    for (int i = 0; i < listOfString.Length; i++)
-    {
-        if (i == listOfString.Length) return listOfString;
-        else if (listOfString[i] == "") listOfString[i] = listOfString[i+1];
-    }
-}
-
-string[] newArrayString = CleanNullArray(ChangeArrayString(arrayString));
+string[] newArrayString = ChangeArrayString(arrayString);
 
 Console.WriteLine();
 Console.WriteLine("Теперь я оставил только те строки, в которых есть максимум 3 символа. Вот что получилось:");
